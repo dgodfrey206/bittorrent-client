@@ -1,0 +1,20 @@
+BigTxtSummary - Example of torrent test on file test/torrents/big.txt.torrent
+Christopher Chute
+May 11, 2016
+
+First we open up at least four nodes with distinct IP addresses. One of these
+nodes must start with the test/uploads/big.txt file, and should be set up first.
+We then start at least three separate nodes to the swarm. Once finished, all
+four nodes have a copy of the file, which is verified below. The format of the
+file names below is big<node>.txt, where <node> is the name of the zoo node that
+was a leecher in the swarm:
+
+********* BEGIN OUTPUT ***********
+-bash-4.2$ ls -l test/downloads/
+total 24132
+-rw-rw-r-- 1 cac258 cac258 1458190 May 11 12:27 bigChameleon.txt
+-rw-rw-r-- 1 cac258 cac258 1458190 May 11 12:27 bigDolphin.txt
+-rw-rw-r-- 1 cac258 cac258 1458190 May 11 12:27 bigTick.txt
+-bash-4.2$ diff test/downloads/bigChameleon.txt test/downloads/bigTick.txt 
+-bash-4.2$ diff test/downloads/bigChameleon.txt test/downloads/bigDolphin.txt 
+-bash-4.2$ 
